@@ -1,0 +1,21 @@
+# Created by https://www.gitignore.io/api/powershell,visualstudiocode,chocolatey
+
+### PowerShell ###
+# Exclude packaged modules
+*.zip
+
+# Exclude .NET assemblies from source
+*.dll
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Chocolatey ###
+# Exclude packaged modules
+*.nupkg
+
+# End of https://www.gitignore.io/api/powershell,visualstudiocode,chocolatey
