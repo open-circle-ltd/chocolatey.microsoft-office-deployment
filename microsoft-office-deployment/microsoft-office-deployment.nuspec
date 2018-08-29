@@ -7,7 +7,7 @@
     <version>16.0.10810.33603</version>
     <authors>Microsoft</authors>
     <owners>ITIGO AG, sbaerlocher</owners>
-    <packageSourceUrl>https://github.com/</packageSourceUrl>
+    <packageSourceUrl>https://github.com/itigoag/chocolatey.microsoft-office-deployment</packageSourceUrl> 
     <projectUrl>http://office.com</projectUrl>
     <iconUrl>https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg</iconUrl>
     <copyright>2016 Microsoft</copyright>
