@@ -9,7 +9,7 @@
     <owners>ITIGO AG, sbaerlocher</owners>
     <packageSourceUrl>https://github.com/itigoag/chocolatey.microsoft-office-deployment</packageSourceUrl> 
     <projectUrl>http://office.com</projectUrl>
-    <iconUrl>https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg</iconUrl>
+    <iconUrl>https://rawgit.com/itigoag/chocolatey.microsoft-office-deployment/master/icon/microsoft-office-deployment.png</iconUrl>
     <copyright>2016 Microsoft</copyright>
     <licenseUrl>https://www.microsoft.com/en-us/servicesagreement/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
