@@ -32,5 +32,6 @@ Installiert Microsoft Office 2016 und 365.
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
+    <file src="**" exclude="**\README.md;**\update.ps1" />
   </files>
 </package>
