@@ -4,7 +4,7 @@
   <metadata>
     <id>microsoft-office-deployment</id>
     <title>Microsoft Office Deployment</title>
-    <version>16.0.10810.33603</version>
+    <version>16.0.11023.33600</version>
     <authors>Microsoft</authors>
     <owners>ITIGO AG, sbaerlocher</owners>
     <packageSourceUrl>https://github.com/itigoag/chocolatey.microsoft-office-deployment</packageSourceUrl> 
@@ -14,7 +14,7 @@
     <licenseUrl>https://www.microsoft.com/en-us/servicesagreement/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <docsUrl>https://support.office.com/</docsUrl>
-    <tags>office365 Office 365 2016 deployment admin</tags>
+    <tags>office365 Office 365 2016 deployment admin ODT</tags>
     <summary>Office 2016 Deployment Tool</summary>
     <description><![CDATA[
 Installiert Microsoft Office 2016 und 365.
