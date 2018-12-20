@@ -48,4 +48,5 @@ This project is under the MIT License. See the [LICENSE](LICENSE) file for the f
 
 ## Copyright
 
-(c) 2018, ITIGO AG
+(c) 2019, Simon Bärlocher
+(c) 2019, ITIGO AG
