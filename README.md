@@ -18,6 +18,8 @@ Installiert Microsoft Office 2016 und 365.
 
 ## Installation
 
+### choco
+
 installation without parameters.
 
 ```ps1
@@ -28,6 +30,25 @@ installation with parameters.
 
 ```ps1
  choco install microsoft-office-deployment --params="'/64bit'"
+```
+
+### [ITIGO Packages](https://github.com/itigoag/ansible.packages)
+
+installation without parameters.
+
+```yml
+packages:
+  airtame:
+    version: latest
+```
+
+installation with parameters.
+
+```yml
+packages:
+  airtame:
+    version: latest
+    params: "'/64bit'"
 ```
 
 ## ToDo
