@@ -1,6 +1,6 @@
 # Chocolatey Package: Microsoft Office Deployment
 
-[![Build Status](https://img.shields.io/travis/itigoag/chocolatey.microsoft-office-deployment<?style=flat-square)](https://travis-ci.org/itigoag/chocolatey.microsoft-office-deployment<) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](licence) [![Chocolatey](https://img.shields.io/chocolatey/v/microsoft-office-deployment<?label=package%20version)](https://chocolatey.org/packages/microsoft-office-deployment<) [![Chocolatey](https://img.shields.io/chocolatey/dt/microsoft-office-deployment<?label=package%20downloads&style=flat-square)](https://chocolatey.org/packages/microsoft-office-deployment<)
+[![Build Status](https://img.shields.io/travis/itigoag/chocolatey.microsoft-office-deployment?style=flat-square)](https://travis-ci.org/itigoag/chocolatey.microsoft-office-deployment) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](licence) [![Chocolatey](https://img.shields.io/chocolatey/v/microsoft-office-deployment?label=package%20version)](https://chocolatey.org/packages/microsoft-office-deployment) [![Chocolatey](https://img.shields.io/chocolatey/dt/microsoft-office-deployment?label=package%20downloads&style=flat-square)](https://chocolatey.org/packages/microsoft-office-deployment)
 
 ## Description
 
