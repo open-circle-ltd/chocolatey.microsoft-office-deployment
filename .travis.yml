@@ -1,0 +1,21 @@
+---
+language: python
+python: 3.6
+services: docker
+
+install:
+  - pip install ansible
+  - wget https://raw.githubusercontent.com/itigoag/chocomilk/develop/Makefile -O ../Makefile
+
+before_script:
+  - ansible --version
+  - cd ../
+  - make before
+
+script:
+  - make play
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
