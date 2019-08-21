@@ -2,12 +2,11 @@
 # chocomilk vars
 
 # Package Changelog
-changelog: 'https://www.microsoft.com/en-us/download/details.aspx?id=49117'
+changelog: 'https://release-monitoring.org/api/v2/projects/?name=Office%20Deployment%20Tool'
 
 # Regex for Version
 version: "{{ register_changelog.content |
-  regex_search('.*Version (\\d+).*') |
-  regex_search('(\\d+)(.)(\\d+)(.)(\\d+)(.)(\\d+)')
+  regex_search('([0-9]+.[0-9]+.[0-9]+.[0-9]+)')
   }}"
 
 # Download URL
