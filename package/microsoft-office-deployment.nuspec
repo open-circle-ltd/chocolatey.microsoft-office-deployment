@@ -3,7 +3,7 @@
   <metadata>
     <id>microsoft-office-deployment</id>
     <title>Microsoft Office Deployment</title>
-    <version>16.0.11901.20022</version>
+    <version>16.0.12130.20272</version>
     <authors>Microsoft</authors>
     <owners>ITIGO AG, sbaerlocher</owners>
     <packageSourceUrl>https://github.com/itigoag/chocolatey.microsoft-office-deployment</packageSourceUrl> 
