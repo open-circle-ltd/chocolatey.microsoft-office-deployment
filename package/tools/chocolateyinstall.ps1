@@ -40,7 +40,7 @@ if ($PackageParameters) {
 
     if ($PackageParameters["Channel"]) {
         Write-Host "The following update channel has been selected $($PackageParameters["Channel"])"
-        $sharedMachine = 1
+        $channel = $PackageParameters["Channel"]
     }
 
     if ($PackageParameters["Language"]) {
