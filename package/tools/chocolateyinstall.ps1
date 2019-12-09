@@ -15,7 +15,6 @@ $arch = 32
 $sharedMachine = 0
 $languages = "MatchOS"
 $products = "HomeBusinessRetail" 
-$channel = "Broad"
 $updates = "TRUE"
 
 if ($PackageParameters) {
@@ -120,7 +119,13 @@ Install-ChocolateyPackage @packageArgs
 
 $installConfigData = @"
 <Configuration>
-    <Add OfficeClientEdition="$arch" Channel="$channel">
+    $(
+        if($channel -ne $null){ 
+    "<Add OfficeClientEdition=""$($arch)"" Channel=""$($channel)"">"
+        } else {
+    "<Add OfficeClientEdition=""$($arch)"">"
+        }
+    )
     $(
         foreach($product in $products) {
 "           <Product ID=""$($product)"">"
@@ -136,7 +141,13 @@ $installConfigData = @"
         }
     )
     </Add>  
-    <Updates Enabled="$updates" Channel="$channel"/>
+    $(
+        if($channel -ne $null){ 
+    "<Updates Enabled=""$($updates)"" Channel=""$($channel)"" />"
+        } else  {
+    "<Updates Enabled=""$($updates)"" />"
+        }
+    )
     <Display Level="None" AcceptEULA="TRUE" />  
     <Logging Level="Standard" Path="$logDir" /> 
     <Property Name="SharedComputerLicensing" Value="$sharedMachine" />  
