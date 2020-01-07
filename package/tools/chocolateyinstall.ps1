@@ -5,7 +5,7 @@ $PackageParameters = Get-PackageParameters
 
 $toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 $urlPackage = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_12130-20272.exe'
-$checksumPackage = '6327c80b82cca9537bb309c122f9470fbed77c15e5223dd1951a3ea65086842dd1ae99c1094b87f0ceb0a4b5b03f5cef37e3ebd3a6d5af9950ba1f3a32e3ec7e'
+$checksumPackage = '0CA16A579010E4A96B14C0F8007F83689D6A924DD874B676E7FEE25311186DFA47D85D248EB93996D6848EE7AE34B0824761699AF6C2FDD96BE6A2E51636EC3F'
 $checksumTypePackage = 'SHA512'
 
 $binDir = "$($toolsDir)\..\bin"
