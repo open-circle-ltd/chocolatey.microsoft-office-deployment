@@ -1,5 +1,6 @@
 Access
 Excel
+Lync
 OneDrive (Groove)
 Skype for Business
 OneDrive Desktop
