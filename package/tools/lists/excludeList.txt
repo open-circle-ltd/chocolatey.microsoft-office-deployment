@@ -4,6 +4,7 @@ Lync
 OneDrive (Groove)
 Skype for Business
 OneDrive Desktop
+OneDrive
 OneNote 2016
 Outlook
 PowerPoint
