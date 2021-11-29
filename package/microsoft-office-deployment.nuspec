@@ -5,10 +5,10 @@
     <title>Microsoft Office Deployment</title>
     <version>16.0.14026.20254</version>
     <authors>Microsoft</authors>
-    <owners>ITIGO AG, sbaerlocher</owners>
-    <packageSourceUrl>https://github.com/itigoag/chocolatey.microsoft-office-deployment</packageSourceUrl> 
+    <owners>Open Circle AG, sbaerlocher</owners>
+    <packageSourceUrl>https://github.com/open-circle-ltd/chocolatey.microsoft-office-deployment</packageSourceUrl> 
     <projectUrl>http://office.com</projectUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/itigoag/chocolatey.microsoft-office-deployment@master/icon/microsoft-office-deployment.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/open-circle-ltd/chocolatey.microsoft-office-deployment@master/icon/microsoft-office-deployment.png</iconUrl>
     <copyright>2016 Microsoft</copyright>
     <licenseUrl>https://www.microsoft.com/en-us/servicesagreement/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
