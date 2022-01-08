@@ -90,6 +90,8 @@ if ($PackageParameters) {
             }
         }
     }
+
+    #Todo: Add proofing tools parameter handling
 }
 else {
     Write-Debug "No Package Parameters Passed in"
