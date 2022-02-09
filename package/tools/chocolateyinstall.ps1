@@ -19,74 +19,86 @@ $updates = "TRUE"
 
 if ($PackageParameters) {
 
-    if ($PackageParameters["64bit"]) {
-        Write-Host "Installing 64-bit version."
-        $arch = 64
+    if ($PackageParameters["XMLfile"]) {
+        Write-Host "Installing using XMLfile."
+        if (test-path $PackageParameters["XMLfile"]) {
+            $installConfigData = Get-Content $PackageParameters["XMLfile"]
+        }
+        else {
+            throw (new-object System.IO.FileNotFoundException)
+        }
     }
     else {
-        Write-Host "Installing 32-bit version."
-    }
 
-    if ($PackageParameters["DisableUpdate"]) {
-        Write-Host "Update Disabled"
-        $updates = "FALSE"
-    }
-
-    if ($PackageParameters["Shared"]) {
-        Write-Host "Installing with Shared Computer Licensing for Remote Desktop Services."
-        $sharedMachine = 1
-    }
-
-    if ($PackageParameters["Channel"]) {
-        Write-Host "The following update channel has been selected $($PackageParameters["Channel"])"
-        $channel = $PackageParameters["Channel"]
-    }
-
-    if ($PackageParameters["Language"]) {
-        $languages = $PackageParameters["Language"].split(",")
-        foreach ($language in $languages) {
-            if (Get-Content "$($toolsDir)\lists\languagesList.txt" | Select-String $language) {
-                Write-Host "Installing language variant $($language)"                 
-            }
-            else {
-                if ($language.Count -gt 1 ) {
-                    Write-Warning "$($language) not found"
-                    $languages = $languages -ne $language
-                }            
-            }
+        if ($PackageParameters["64bit"]) {
+            Write-Host "Installing 64-bit version."
+            $arch = 64
         }
-    }
+        else {
+            Write-Host "Installing 32-bit version."
+        }
 
-    if ($PackageParameters["Product"]) {        
-        $products = $PackageParameters["Product"].split(",")
-        foreach ($product in $products) {
-            if (Get-Content "$($toolsDir)\lists\officeList.txt" | Select-String $product) {
-                Write-Host "Installation Product $($product)"                 
-            }
-            else {
-                if ($products.Count -gt 1 ) {
-                    Write-Warning "$($product) not found"
-                    $products = $products -ne $product
+        if ($PackageParameters["DisableUpdate"]) {
+            Write-Host "Update Disabled"
+            $updates = "FALSE"
+        }
+
+        if ($PackageParameters["Shared"]) {
+            Write-Host "Installing with Shared Computer Licensing for Remote Desktop Services."
+            $sharedMachine = 1
+        }
+
+        if ($PackageParameters["Channel"]) {
+            Write-Host "The following update channel has been selected $($PackageParameters["Channel"])"
+            $channel = $PackageParameters["Channel"]
+        }
+
+        if ($PackageParameters["Language"]) {
+            $languages = $PackageParameters["Language"].split(",")
+            foreach ($language in $languages) {
+                if (Get-Content "$($toolsDir)\lists\languagesList.txt" | Select-String $language) {
+                    Write-Host "Installing language variant $($language)"                 
                 }
                 else {
-                    Write-Warning "$($product) not found we installed HomeBusinessRetail"
-                    $products = "HomeBusinessRetail"
-                }              
+                    if ($language.Count -gt 1 ) {
+                        Write-Warning "$($language) not found"
+                        $languages = $languages -ne $language
+                    }            
+                }
             }
         }
-    }
 
-    if ($PackageParameters["Exclude"]) {        
-        $excludes = $PackageParameters["Exclude"].split(",")
-        foreach ($exclude in $excludes) {
-            if (Get-Content "$($toolsDir)\lists\excludeList.txt" | Select-String $exclude) {
-                Write-Host "Excluded $($exclude)"                 
+        if ($PackageParameters["Product"]) {        
+            $products = $PackageParameters["Product"].split(",")
+            foreach ($product in $products) {
+                if (Get-Content "$($toolsDir)\lists\officeList.txt" | Select-String $product) {
+                    Write-Host "Installation Product $($product)"                 
+                }
+                else {
+                    if ($products.Count -gt 1 ) {
+                        Write-Warning "$($product) not found"
+                        $products = $products -ne $product
+                    }
+                    else {
+                        Write-Warning "$($product) not found we installed HomeBusinessRetail"
+                        $products = "HomeBusinessRetail"
+                    }              
+                }
             }
-            else {
-                if ($excludes.Count -gt 1 ) {
-                    Write-Warning "$($exclude) not found"
-                    $excludes = $excludes -ne $exclude
-                }            
+        }
+
+        if ($PackageParameters["Exclude"]) {        
+            $excludes = $PackageParameters["Exclude"].split(",")
+            foreach ($exclude in $excludes) {
+                if (Get-Content "$($toolsDir)\lists\excludeList.txt" | Select-String $exclude) {
+                    Write-Host "Excluded $($exclude)"                 
+                }
+                else {
+                    if ($excludes.Count -gt 1 ) {
+                        Write-Warning "$($exclude) not found"
+                        $excludes = $excludes -ne $exclude
+                    }            
+                }
             }
         }
     }
@@ -116,8 +128,8 @@ $packageArgs = @{
 }
 
 Install-ChocolateyPackage @packageArgs
-
-$installConfigData = @"
+if (!($installConfigData)) {
+    $installConfigData = @"
 <Configuration>
     $(
         if($channel -ne $null){ 
@@ -153,6 +165,7 @@ $installConfigData = @"
     <Property Name="SharedComputerLicensing" Value="$sharedMachine" />  
 </Configuration>
 "@
+}
  
 $uninstallConfigData = @"
 <Configuration>
