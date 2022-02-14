@@ -16,6 +16,7 @@ $sharedMachine = 0
 $languages = "MatchOS"
 $products = "HomeBusinessRetail" 
 $updates = "TRUE"
+$ProofingToolLanguages =@()
 
 if ($PackageParameters) {
 
@@ -57,6 +58,21 @@ if ($PackageParameters) {
         }
     }
 
+    if ($PackageParameters["ProofingToolLanguage"]) {
+        $ProofingToolLanguages = $PackageParameters["ProofingToolLanguage"].split(",")
+        foreach ($language in $ProofingToolLanguages) {
+            if (Get-Content "$($toolsDir)\lists\ProoflanguagesList.txt" | Select-String $language) {
+                Write-Host "Installing Proofing Tools language variant $($language)"                 
+            }
+            else {
+                if ($language.Count -gt 1 ) {
+                    Write-Warning "$($language) not found"
+                    $ProofingToolLanguages = $ProofingToolLanguages -ne $language
+                }
+            }
+        }
+    }
+
     if ($PackageParameters["Product"]) {        
         $products = $PackageParameters["Product"].split(",")
         foreach ($product in $products) {
@@ -90,6 +106,7 @@ if ($PackageParameters) {
             }
         }
     }
+
 }
 else {
     Write-Debug "No Package Parameters Passed in"
@@ -128,7 +145,7 @@ $installConfigData = @"
     )
     $(
         foreach($product in $products) {
-"           <Product ID=""$($product)"">"
+"`r`n       <Product ID=""$($product)"">"
         foreach($language in $languages) {
 "`r`n           <Language ID=""$($language)"" />"
 
@@ -137,6 +154,15 @@ $installConfigData = @"
 "`r`n           <ExcludeApp ID=""$($exclude)"" />"
 
         }
+"`r`n       </Product>"
+        }
+        if ($ProofingToolLanguages.Count -gt 0)
+        {
+"`r`n       <Product ID=""ProofingTools"">"
+            foreach($prooflanguage in $ProofingToolLanguages) {
+"`r`n           <Language ID=""$($prooflanguage)"" />"
+
+            }
 "`r`n       </Product>"
         }
     )
@@ -159,7 +185,12 @@ $uninstallConfigData = @"
     <Remove>
     $(
         foreach($product in $products) {
-"           <Product ID=""$($product)"">"
+"`r`n       <Product ID=""$($product)"">"
+"`r`n       </Product>"
+        }
+        if ($ProofingToolLanguages.Count -gt 0)
+        {
+"`r`n       <Product ID=""ProofingTools"">"
 "`r`n       </Product>"
         }
     )
