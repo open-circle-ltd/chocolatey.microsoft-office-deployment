@@ -33,6 +33,10 @@ if ($PackageParameters) {
         $updates = "FALSE"
     }
 
+    if ($PackageParameters["RemoveMSI"]) {
+        Write-Host "Removing existing MSI versions of Office."
+    }
+
     if ($PackageParameters["Shared"]) {
         Write-Host "Installing with Shared Computer Licensing for Remote Desktop Services."
         $sharedMachine = 1
@@ -172,6 +176,11 @@ $installConfigData = @"
     "<Updates Enabled=""$($updates)"" Channel=""$($channel)"" />"
         } else  {
     "<Updates Enabled=""$($updates)"" />"
+        }
+    )
+    $(
+        if($PackageParameters["RemoveMSI"]){
+            "<RemoveMSI />"
         }
     )
     <Display Level="None" AcceptEULA="TRUE" />  
