@@ -43,15 +43,10 @@ if ($PackageParameters) {
             Write-Host "Update Disabled"
             $updates = "FALSE"
         }
-    if ($PackageParameters["RemoveMSI"]) {
-        Write-Host "Removing existing MSI versions of Office."
-    }
-
-    if ($PackageParameters["Shared"]) {
-        Write-Host "Installing with Shared Computer Licensing for Remote Desktop Services."
-        $sharedMachine = 1
-    }
-
+        if ($PackageParameters["RemoveMSI"]) {
+            Write-Host "Removing existing MSI versions of Office."
+        }
+    
         if ($PackageParameters["Shared"]) {
             Write-Host "Installing with Shared Computer Licensing for Remote Desktop Services."
             $sharedMachine = 1
@@ -66,40 +61,50 @@ if ($PackageParameters) {
             $languages = $PackageParameters["Language"].split(",")
             foreach ($language in $languages) {
                 if (Get-Content "$($toolsDir)\lists\languagesList.txt" | Select-String $language) {
-                    Write-Host "Installing language variant $($language)"                 
-    if ($PackageParameters["ProofingToolLanguage"]) {
-        $ProofingToolLanguages = $PackageParameters["ProofingToolLanguage"].split(",")
-        foreach ($language in $ProofingToolLanguages) {
-            if (Get-Content "$($toolsDir)\lists\ProoflanguagesList.txt" | Select-String $language) {
-                Write-Host "Installing Proofing Tools language variant $($language)"                 
-            }
-            else {
-                if ($language.Count -gt 1 ) {
-                    Write-Warning "$($language) not found"
-                    $ProofingToolLanguages = $ProofingToolLanguages -ne $language
+                    Write-Host "Installing language variant $($language)" 
                 }
             }
         }
-    }
 
-    if ($PackageParameters["Product"]) {        
-        $products = $PackageParameters["Product"].split(",")
-        foreach ($product in $products) {
-            if (Get-Content "$($toolsDir)\lists\officeList.txt" | Select-String $product) {
-                Write-Host "Installation Product $($product)"                 
-            }
-            else {
-                if ($products.Count -gt 1 ) {
-                    Write-Warning "$($product) not found"
-                    $products = $products -ne $product
+        if ($PackageParameters["ProofingToolLanguage"]) {
+            $ProofingToolLanguages = $PackageParameters["ProofingToolLanguage"].split(",")
+            foreach ($language in $ProofingToolLanguages) {
+                if (Get-Content "$($toolsDir)\lists\ProoflanguagesList.txt" | Select-String $language) {
+                    Write-Host "Installing Proofing Tools language variant $($language)"                 
                 }
                 else {
                     if ($language.Count -gt 1 ) {
                         Write-Warning "$($language) not found"
-                        $languages = $languages -ne $language
-                    }            
+                        $ProofingToolLanguages = $ProofingToolLanguages -ne $language
+                    }
                 }
             }
+        }
+
+        if ($PackageParameters["Product"]) {        
+            $products = $PackageParameters["Product"].split(",")
+            foreach ($product in $products) {
+                if (Get-Content "$($toolsDir)\lists\officeList.txt" | Select-String $product) {
+                    Write-Host "Installation Product $($product)"                 
+                }
+                else {
+                    if ($products.Count -gt 1 ) {
+                        Write-Warning "$($product) not found"
+                        $products = $products -ne $product
+                    }
+                    else {
+                        if ($language.Count -gt 1 ) {
+                            Write-Warning "$($language) not found"
+                            $languages = $languages -ne $language
+                        }            
+                    }
+                }
+            }
+        }
+            
+        if ($PackageParameters["LicenseKey"]) {
+            $pidkey = $PackageParameters["LicenseKey"]
+            Write-Host "Installing with a License Key"
         }
 
         if ($PackageParameters["Product"]) {        
@@ -175,7 +180,11 @@ if (!($installConfigData)) {
     )
     $(
         foreach($product in $products) {
-"`r`n       <Product ID=""$($product)"">"
+            if($pidkey -ne $null){
+"`r`n       <Product ID=""$($product)"" PIDKEY=""$($pidkey)"">"
+            }
+            else {
+"`r`n       <Product ID=""$($product)"">" }
         foreach($language in $languages) {
 "`r`n           <Language ID=""$($language)"" />"
 
