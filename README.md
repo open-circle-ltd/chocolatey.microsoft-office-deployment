@@ -16,6 +16,7 @@ Installiert Microsoft Office 2019 und 365.
 - `/Product` default `HomeBusinessRetail` Supportet `PersonalRetail, ProPlusRetail, O365SmallBusPremRetail, O365BusinessRetail, O365ProPlusRetail, InfoPathRetail, SPDRetail, ProjectProRetail, VisioProRetail, LyncEntryRetail, LyncRetail, SkypeforBusiness, EntryRetail, SkypeforBusinessRetail, AccessRetail, Access2019Retail, Access2019Volume, ExcelRetail, Excel2019Retail, Excel2019Volume, HomeBusinessRetail, HomeBusiness2019Retail, HomeStudentRetail, HomeStudent2019Retail, O365HomePremRetail, OneNoteRetail, OutlookRetail, Outlook2019Retail, Outlook2019Volume, Personal2019Retail, PowerPointRetail, PowerPoint2019Retail, PowerPoint2019Volume, ProfessionalRetail, Professional2019Retail, ProjectProXVolume, ProjectPro2019Retail, ProjectPro2019Volume, ProjectStdRetail, ProjectStdXVolume, ProjectStd2019Retail, ProjectStd2019Volume, ProPlus2019Volume, PublisherRetail, Publisher2019Retail, Publisher2019Volume, Standard2019Volume, VisioProXVolume, VisioPro2019Retail, VisioPro2019Volume, VisioStdRetail, VisioStdXVolume, VisioStd2019Retail, VisioStd2019Volume, WordRetail, Word2019Retail, Word2019Volume`
 - `/Exclude` `Publisher, PowerPoint, OneDrive, Outlook, OneNote, Lync, Groove, Excel, Access, Word`
 - `/RemoveMSI` to remove any pre-existing msi installations.
+- `/ProofingToolLanguage` Comma separated list of extra proofing tool languages to install.
 
 ## Installation
 
@@ -30,7 +31,7 @@ installation without parameters.
 installation with parameters.
 
 ```ps1
- choco install microsoft-office-deployment --params="'/64bit'"
+ choco install microsoft-office-deployment --params="'/64bit /ProofingToolLanguage:de-de,da-dk,es-es'"
 ```
 
 ### [ITIGO Packages](https://github.com/itigoag/ansible.packages)
@@ -49,7 +50,7 @@ installation with parameters.
 packages:
   airtame:
     version: latest
-    params: "'/64bit'"
+    params: "'/64bit /ProofingToolLanguage:de-de,da-dk,es-es'"
 ```
 
 ## ToDo
