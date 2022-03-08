@@ -37,3 +37,10 @@ deploy:
     email: "chocomilk@open-circle.ch"
     url: github.com/open-circle-ltd/chocolatey.microsoft-office-deployment.git
     key: "{{ lookup('env','GITHUB_API_KEY') }}"
+    
+# Notification
+notifications:
+  - provider: mattermost
+    url: 'https://chat.open-circle.ch'
+    key: "{{ lookup('env','MATTERMOST_API_KEY') }}"
+    channel: 'notification-chocolatey'
