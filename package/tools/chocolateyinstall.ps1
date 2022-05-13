@@ -4,8 +4,8 @@ $ErrorActionPreference = 'Stop';
 $PackageParameters = Get-PackageParameters
 
 $toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
-$urlPackage = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_15028-20242.exe'
-$checksumPackage = '6051a8783f7433b01aab552dca199ee74457e1bf96bf579fe95269be6f248ec39b1af045175efe1d3faa6fc84a9e629297d6ec93d0ced00fffa22c4dfa4a0c00'
+$urlPackage = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_15128-20224.exe'
+$checksumPackage = 'd9c5c017f842a51fcb15f4db559d18f9ff79ef7db61fb4c3ee9b7bcb26f4b22dc1f7e689612c0f24faf4b22de8ea839d216a5e710e18b60c12841b7513796f0d'
 $checksumTypePackage = 'SHA512'
 
 $binDir = "$($toolsDir)\..\bin"
