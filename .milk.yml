@@ -5,9 +5,7 @@
 changelog: "https://release-monitoring.org/api/v2/projects/?name=Office%20Deployment%20Tool"
 
 # Regex for Version
-version: "{{ register_changelog.content |
-  regex_search('([0-9]+.[0-9]+.[0-9]+.[0-9]+)')
-  }}"
+version: "{{ register_changelog.json['items'][0].version }}"
 
 # Download URL
 url: "https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_{{ version | regex_replace('16.0.', '') | regex_replace('\\.', '-')   }}.exe"
@@ -37,10 +35,10 @@ deploy:
     email: "chocomilk@open-circle.ch"
     url: github.com/open-circle-ltd/chocolatey.microsoft-office-deployment.git
     key: "{{ lookup('env','GITHUB_API_KEY') }}"
-    
+
 # Notification
 notifications:
   - provider: mattermost
-    url: 'https://chat.open-circle.ch'
+    url: "https://chat.open-circle.ch"
     key: "{{ lookup('env','MATTERMOST_API_KEY') }}"
-    channel: 'notification-chocolatey'
+    channel: "notification-chocolatey"
