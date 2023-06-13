@@ -9,7 +9,7 @@ changelog_format: json
 version: "{{ register_changelog.json['stable_versions'][0] }}"
 
 # Download URL
-url: "https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_{{ version | regex_replace('16.0.', '') | regex_replace('\\.', '-')   }}.exe"
+url: "https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_{{ version | split('.')[-2:] | join('-') }}.exe"
 
 searchreplace:
   "tools/chocolateyinstall.ps1":
