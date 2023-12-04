@@ -4,8 +4,8 @@ $ErrorActionPreference = 'Stop';
 $PackageParameters = Get-PackageParameters
 
 $toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
-$urlPackage = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_15928-20216.exe'
-$checksumPackage = '8c43a572ef224ab4b316606712436627d5ad706a2db6a635e160b641887bcbfd5b0c878b335c0d1c7c8a986eb50d98fe7de0ccea7777670941d98d6a02ed9d32'
+$urlPackage = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_16731-20398.exe'
+$checksumPackage = 'B2A58E4C24A9FEF7854BE8B37F8B1B10F89126767EDAB50E1FC0D80F2D2FF957D697C6C5B4F66C358A3875D1E0CB2539A856B6CE90F76755089FE8D31327B39E'
 $checksumTypePackage = 'SHA512'
 
 $binDir = "$($toolsDir)\..\bin"
@@ -253,7 +253,7 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     fileType       = 'EXE'
     file           = "$($binDir)\setup.exe"
-    checksum       = '53CA42D6EEDB08AD3EFF2EB51E720673C3842C24D36B334FCA7358CE6AC19007'
+    checksum       = '03FEB1535F7B14B2AA20707A9889DD5905D24582A6A0A0A406F1175819D3E75A'
     checksumType   = 'sha256'
     silentArgs     = "/configure $($binDir)\Install.xml"
     validExitCodes = @(
