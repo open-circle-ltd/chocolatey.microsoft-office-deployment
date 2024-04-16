@@ -3,7 +3,7 @@
   <metadata>
     <id>microsoft-office-deployment</id>
     <title>Microsoft Office Deployment</title>
-    <version>16.0.17328.20162</version>
+    <version>16.0.17531.20046</version>
     <authors>Microsoft</authors>
     <owners>Open Circle AG, sbaerlocher, bmcatherasoo</owners>
     <packageSourceUrl>https://github.com/open-circle-ltd/chocolatey.microsoft-office-deployment</packageSourceUrl> 
