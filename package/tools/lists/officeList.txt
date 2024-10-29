@@ -21,6 +21,8 @@ Excel2019Volume
 Excel2021Volume
 HomeBusinessRetail
 HomeBusiness2019Retail
+HomeBusiness2024Retail
+Home2024Retail
 HomeStudentRetail
 HomeStudent2019Retail
 O365HomePremRetail
@@ -48,6 +50,8 @@ ProjectStd2019Volume
 ProjectStd2021Volume
 ProPlus2019Volume
 ProPlus2021Volume
+ProPlus2024Retail
+ProPlus2024Volume
 ProPlusSPLA2021Volume
 PublisherRetail
 Publisher2019Retail
@@ -55,6 +59,7 @@ Publisher2019Volume
 Publisher2021Volume
 Standard2019Volume
 Standard2021Volume
+Standard2024Volume
 StandardSPLA2021Volume
 VisioProXVolume
 VisioPro2019Retail
