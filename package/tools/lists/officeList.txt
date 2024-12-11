@@ -43,11 +43,13 @@ ProjectProXVolume
 ProjectPro2019Retail
 ProjectPro2019Volume
 ProjectPro2021Volume
+ProjectPro2024Volume
 ProjectStdRetail
 ProjectStdXVolume
 ProjectStd2019Retail
 ProjectStd2019Volume
 ProjectStd2021Volume
+ProjectStd2024Volume
 ProPlus2019Volume
 ProPlus2021Volume
 ProPlus2024Retail
@@ -65,11 +67,13 @@ VisioProXVolume
 VisioPro2019Retail
 VisioPro2019Volume
 VisioPro2021Volume
+VisioPro2024Volume
 VisioStdRetail
 VisioStdXVolume
 VisioStd2019Retail
 VisioStd2019Volume
 VisioStd2021Volume
+VisioStd2024Volume
 WordRetail
 Word2019Retail
 Word2019Volume
