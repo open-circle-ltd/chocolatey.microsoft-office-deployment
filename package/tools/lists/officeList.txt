@@ -51,7 +51,9 @@ ProjectStd2019Volume
 ProjectStd2021Volume
 ProjectStd2024Volume
 ProPlus2019Volume
+ProPlus2019Retail
 ProPlus2021Volume
+ProPlus2021Retail
 ProPlus2024Retail
 ProPlus2024Volume
 ProPlusSPLA2021Volume
