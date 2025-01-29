@@ -15,4 +15,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: gautamkrishnar/keepalive-workflow@v2
         with:
+          workflow_files: "chocomilk.yml"
           time_elapsed: 40
