@@ -9,6 +9,7 @@
     <packageSourceUrl>https://github.com/open-circle-ltd/chocolatey.microsoft-office-deployment</packageSourceUrl> 
     <projectUrl>http://office.com</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/open-circle-ltd/chocolatey.microsoft-office-deployment@master/icon/microsoft-office-deployment.png</iconUrl>
+    <releaseNotes>https://learn.microsoft.com/en-us/officeupdates/odt-release-history</releaseNotes>
     <copyright>2025 Microsoft</copyright>
     <licenseUrl>https://www.microsoft.com/en-us/servicesagreement/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
