@@ -46,6 +46,10 @@ Installation with parameters.
  choco install microsoft-office-deployment --params="'/64bit /ProofingToolLanguage:de-de,da-dk,es-es'"
 ```
 
+```ps1
+ choco install microsoft-office-deployment --package-parameters "'/64bit /Product:VisioPro2024Retail /Language:en-us,de-de /Exclude:Publisher,Outloook'"
+```
+
 ## ToDo
 
 - Check if there is a factory preinstalled version on it and uninstall it.
