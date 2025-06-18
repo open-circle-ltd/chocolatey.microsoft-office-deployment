@@ -69,34 +69,16 @@ if ($PackageParameters) {
         if ($PackageParameters["ProofingToolLanguage"]) {
             $ProofingToolLanguages = $PackageParameters["ProofingToolLanguage"].split(",")
             foreach ($language in $ProofingToolLanguages) {
-                if (Get-Content "$($toolsDir)\lists\ProoflanguagesList.txt" | Select-String $language) {
+                if (Get-Content "$($toolsDir)\lists\ProofLanguagesList.txt" | Select-String $language) {
                     Write-Host "Installing Proofing Tools language variant $($language)"                 
                 }
                 else {
-                    if ($language.Count -gt 1 ) {
+                    if ($ProofingToolLanguages.Count -gt 1 ) {
                         Write-Warning "$($language) not found"
                         $ProofingToolLanguages = $ProofingToolLanguages -ne $language
-                    }
-                }
-            }
-        }
-
-        if ($PackageParameters["Product"]) {        
-            $products = $PackageParameters["Product"].split(",")
-            foreach ($product in $products) {
-                if (Get-Content "$($toolsDir)\lists\officeList.txt" | Select-String $product) {
-                    Write-Host "Installation Product $($product)"                 
-                }
-                else {
-                    if ($products.Count -gt 1 ) {
-                        Write-Warning "$($product) not found"
-                        $products = $products -ne $product
-                    }
-                    else {
-                        if ($language.Count -gt 1 ) {
-                            Write-Warning "$($language) not found"
-                            $languages = $languages -ne $language
-                        }            
+                    } else {
+                        Write-Warning "$($language) not found. No proofing tool language will be installed."
+                        $ProofingToolLanguages = @()
                     }
                 }
             }
