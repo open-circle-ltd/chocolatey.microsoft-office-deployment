@@ -32,8 +32,6 @@ VisioStd2024Volume, WordRetail, Word2019Retail, Word2021Retail, Word2024Retail, 
 
 ## Installation
 
-### choco
-
 Installation without parameters.
 
 ```ps1
@@ -43,11 +41,7 @@ Installation without parameters.
 Installation with parameters.
 
 ```ps1
- choco install microsoft-office-deployment --params="'/64bit /ProofingToolLanguage:de-de,da-dk,es-es'"
-```
-
-```ps1
- choco install microsoft-office-deployment --package-parameters "'/64bit /Product:VisioPro2024Retail /Language:en-us,de-de /Exclude:Publisher,Outloook'"
+ choco install microsoft-office-deployment --params="'/64bit /Product:VisioPro2024Retail /Language:en-us,de-de /Exclude:Publisher,Outloook /ProofingToolLanguage:de-de,da-dk,es-es'"
 ```
 
 ## ToDo

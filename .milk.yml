@@ -21,7 +21,7 @@ searchreplace:
 # readme to description
 readme:
   start: 6
-  end: 54
+  end: 46
 
 # deploy
 deploy:
