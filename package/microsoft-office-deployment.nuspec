@@ -3,7 +3,7 @@
   <metadata>
     <id>microsoft-office-deployment</id>
     <title>Microsoft Office Deployment</title>
-    <version>16.0.18730.20142</version>
+    <version>16.0.18827.20140</version>
     <authors>Microsoft</authors>
     <owners>Open Circle AG, sbaerlocher, bmcatherasoo</owners>
     <packageSourceUrl>https://github.com/open-circle-ltd/chocolatey.microsoft-office-deployment</packageSourceUrl> 
@@ -61,6 +61,8 @@ Installation with parameters.
 ```ps1
  choco install microsoft-office-deployment --package-parameters "'/64bit /Product:VisioPro2024Retail /Language:en-us,de-de /Exclude:Publisher,Outloook'"
 ```
+
+## ToDo
 </description>
   </metadata>
   <files>
