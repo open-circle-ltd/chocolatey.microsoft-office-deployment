@@ -2,38 +2,21 @@
 
 $ErrorActionPreference = 'Stop';
 
+$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+$binDir = "$($toolsDir)\..\bin"
+$logDir = "$($toolsDir)\..\logs"
+
 $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
-    softwareName   = ''
-    fileType       = ''
-    silentArgs     = ''
-    validExitCodes = @(0, 3010, 1605, 1614, 1641)
+    fileType       = 'EXE'
+    file           = "$($binDir)\setup.exe"
+    silentArgs     = "/configure $($binDir)\Uninstall.xml"
+    validExitCodes = @(
+        0, # success
+        3010, # success, restart required
+        2147781575, # pending restart required
+        2147205120  # pending restart required for setup update
+    )
 }
 
-if ($key.Count -eq 1) {
-    $key | ForEach-Object {
-        $packageArgs['file'] = "$($_.UninstallString)"
-        if ($packageArgs['fileType'] -eq 'MSI') {
-          $packageArgs['silentArgs'] = "$($_.PSChildName) $($packageArgs['silentArgs'])"
-          $packageArgs['file'] = ''
-        }
-        Uninstall-ChocolateyPackage @packageArgs
-    }
-} elseif ($key.Count -eq 0) {
-    Write-Warning "$packageName has already been uninstalled by other means."
-} elseif ($key.Count -gt 1) {
-    Write-Warning "$($key.Count) matches found!"
-    Write-Warning "To prevent accidental data loss, no programs will be uninstalled."
-    Write-Warning "Please alert package maintainer the following keys were matched:"
-    $key | ForEach-Object {Write-Warning "- $($_.DisplayName)"}
-}
-
-# Custome Settings from Package
-## Remove files and folders
-if (Get-Item -Path "<Path>" -ErrorAction SilentlyContinue) {
-    Remove-Item `
-        -Path "<Path>" `
-        -Recurse
-    Write-Output `
-        -InputObject "Remove Shortcut <Path>"
-}
+Uninstall-ChocolateyPackage @packageArgs
