@@ -3,13 +3,22 @@
 $ErrorActionPreference = 'Stop';
 $PackageParameters = Get-PackageParameters
 
-$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 $urlPackage = 'https://download.microsoft.com/download/6c1eeb25-cf8b-41d9-8d0d-cc1dbc032140/officedeploymenttool_19231-20156.exe'
 $checksumPackage = 'd5e354512f0e7dafde122a0efd9758e5d8cf8635d45cfeeb46fa5daba17c5e34391a6fac228f81f3955c245fe6178b0a3f030fdc212cca16837c5351bf731bc8'
 $checksumTypePackage = 'SHA512'
 
-$binDir = "$($toolsDir)\..\bin"
-$logDir = "$($toolsDir)\..\logs"
+# directories setup
+$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
+$sourceDir = "$($toolsDir)\.."
+
+$binDir = "$($sourceDir)\bin"
+$logDir = "$($sourceDir)\logs"
+
+# Explicitly create directories since they are not always created implicitly.
+New-Item -Path "$($sourceDir)\" -Name "bin" -ItemType Directory
+New-Item -Path "$($sourceDir)\" -Name "logs" -ItemType Directory
+
 
 $arch = 32
 $sharedMachine = 0
