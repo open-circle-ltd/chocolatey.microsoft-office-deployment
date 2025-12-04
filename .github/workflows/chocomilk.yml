@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Play chocomilk
         uses: open-circle-ltd/chocomilk@master
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
-          CHOCOLATEY_ITIGO_API_KEY: ${{ secrets.CHOCOLATEY_ITIGO_API_KEY }}
+          CHOCOLATEY_CHOCOWALL_API_KEY: ${{ secrets.CHOCOLATEY_CHOCOWALL_API_KEY }}
           CHOCOLATEY_ORG_API_KEY: ${{ secrets.CHOCOLATEY_ORG_API_KEY }}
           MATTERMOST_API_KEY: ${{ secrets.MATTERMOST_API_KEY }}
           GITHUB_API_KEY: ${{ secrets.GITHUB_TOKEN }}
