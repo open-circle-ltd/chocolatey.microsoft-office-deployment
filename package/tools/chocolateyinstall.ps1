@@ -243,8 +243,6 @@ $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     fileType       = 'EXE'
     file           = "$($binDir)\setup.exe"
-    checksum       = 'C0CE754C373D1DC7161A3706AEED1C895B9A678AE3C0BE131590F593E4D43F66'
-    checksumType   = 'sha256'
     silentArgs     = "/configure $($binDir)\Install.xml"
     validExitCodes = @(
         0, # success
