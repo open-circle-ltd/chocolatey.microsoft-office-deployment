@@ -2,8 +2,8 @@
 
 $ErrorActionPreference = 'Stop';
 $PackageParameters = Get-PackageParameters
-$urlPackage = 'https://download.microsoft.com/download/6c1eeb25-cf8b-41d9-8d0d-cc1dbc032140/officedeploymenttool_19628-20046.exe'
-$checksumPackage = 'c496de73c519f9934532a02848e16ce495c91a0239eb750162db03ec277e9f4527aea97a59635f1f576a8f22c035695c8e86f132864a952edca1e5b470766c84'
+$urlPackage = 'https://download.microsoft.com/download/6c1eeb25-cf8b-41d9-8d0d-cc1dbc032140/officedeploymenttool_19628-20192.exe'
+$checksumPackage = '75de233d882b78e15c685b98f2b86a0ec2bb801d69c79ce755b18fd08d16961af435271cdb985005df0683765c79d2c8879e934fd5d8b63ffb7414b80eed7410'
 $checksumTypePackage = 'SHA512'
 
 # directories setup
